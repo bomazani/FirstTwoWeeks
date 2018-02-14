@@ -25,13 +25,14 @@ document.body.appendChild(num3);
 
 // 4. Display a CSV (comma-separated) string from the lotrCitiesArray
 const cities4 = lotrCitiesArray.toString();
+// console.log(lotrCitiesArray);
 const num4 = document.createElement("div");
 num4.textContent = "4. " + cities4;
 document.body.appendChild(num4);
 
 // 5. Display the first 5 cities in lotrCitiesArray
 const cities5 = lotrCitiesArray.slice(0,5);
-console.log(cities5);
+// console.log(cities5);
 const num5 = document.createElement("div");
 num5.textContent = "5. " + JSON.stringify(cities5);
 // num5.textContent = "5. " + lotrCitiesArray.slice(0,5);
@@ -58,7 +59,8 @@ document.body.appendChild(num8);
 
 // 9. Using splice, remove all cities after "Dead Marshes" in lotrCitiesArray
 const num9 = document.createElement("div");
-let num9Array = lotrCitiesArray;
+let num9Array = lotrCitiesArray.slice();
+// console.log(lotrCitiesArray);
 num9Array.splice(5, );
 num9.textContent = "9. " + num9Array
 document.body.appendChild(num9);
@@ -72,7 +74,8 @@ document.body.appendChild(num10);
 
 // 11. Using splice, rename "Dead Marshes" to "Deadest Marshes" in lotrCitiesArray
 const num11 = document.createElement ("div");
-let num11Array = lotrCitiesArray;
+let num11Array = lotrCitiesArray.slice();
+// console.log(lotrCitiesArray);
 num11Array.splice(4, 1, "Deadest Marshes");
 num11.textContent = "11. " + num11Array;
 document.body.appendChild(num11);
@@ -170,6 +173,32 @@ for(i=0; i<words19.length; i++){
 
 
 // 20. Find and display all cities from lotrCitiesArray that end with "or"
+
+const num20b = document.createElement ("div");
+num20b.textContent = "20. ";
+document.body.appendChild(num20b);
+
+for(i=0; i<lotrCitiesArray.length; i++){
+    // console.log(lotrCitiesArray.length)
+    const num20 = document.createElement("div");
+    string20 = lotrCitiesArray[i].toString();
+    
+    // search end of each word for "or";
+    let posOR = string20.indexOf("or");
+        // console.log(posOR);
+
+        if(posOR=string20.length-2){
+            // num20.textContent = string20;
+            num20.textContent = lotrCitiesArray[i];
+            document.body.appendChild(num20);
+        }
+    }  
+    // ** Not returning the expected results. 
+    // ** console.log(lotrCitiesArray.length) is returning "6"
+    // ** console.log(posOR) is returning 1,4,-1,-1,-1,-1
+    // ## could try starting over using cities4 from exercise #4. It is a CSV string from lotrCitiesArray.
+// Anywhere I "copied" an array to a new array... change to "newArray=oldArray.slice();"
+
 // 21. Find and display all the words in bestThing that start with a "b"
 // 22. Display "Yes" or "No" if lotrCitiesArray includes "Mirkwood"
 // 23. Display "Yes" or "No" if lotrCitiesArray includes "Hollywood"
