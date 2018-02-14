@@ -30,15 +30,18 @@ num4.textContent = "4. " + cities4;
 document.body.appendChild(num4);
 
 // 5. Display the first 5 cities in lotrCitiesArray
-
+const cities5 = lotrCitiesArray.slice(0,5);
+console.log(cities5);
 const num5 = document.createElement("div");
-num5.textContent = "5. " + lotrCitiesArray.slice(0,5);
+num5.textContent = "5. " + JSON.stringify(cities5);
+// num5.textContent = "5. " + lotrCitiesArray.slice(0,5);
 document.body.appendChild(num5);
 
 // 6. Display the last 5 cities in lotrCitiesArray
 const num6 = document.createElement("div");
 let i = lotrCitiesArray.length;
-num6.textContent = "6. " + lotrCitiesArray.slice((i-5),i);
+const cities6 = lotrCitiesArray.slice((i-5),i);
+num6.textContent = "6. " + JSON.stringify(cities6);
 document.body.appendChild(num6);
 
 // 7. Display the 3rd to 5th city in lotrCitiesArray
@@ -107,17 +110,65 @@ document.body.appendChild(num16);
 
 // 17. Find and display the index of "only" in bestThing
 const num17 = document.createElement ("div");
-let num17Array = bestThing.indexOf("only");
+const words17 = bestThing.split(" ");
+let num17Array = words17.indexOf("only");
 num17.textContent = "17. " + num17Array;
 document.body.appendChild(num17);
 
 // 18. Find and display the index of the last word in bestThing
 const num18 = document.createElement ("div");
-let num18Array =  bestThing.slice(bestThing.length-1);
-num18.textContent = "18. " + num18Array;
+const words18 = bestThing.split(" ");
+num18.textContent = "18. " + words18.length;
 document.body.appendChild(num18);
 
 // 19. Find and display all cities from gotCitiesCSV  that use double vowels ("aa","ee", etc.)
+// prints the exercise# "19.""
+const num19 = document.createElement ("div");
+num19.textContent = "19. ";
+document.body.appendChild(num19);
+// creates a new array "words19" which splits "bestThing" whenever a space occurs.
+const words19 = bestThing.split(" ");
+// for loop starting a zero and running through the end of "words19".
+for(i=0; i<words19.length; i++){
+    // creates a new variable to return the results of the loop.
+    const num19b = document.createElement ("div");
+    // creates a string "string19" for each word in "words19".
+    string19 = words19[i].toString();
+    // search each word for "oo";
+    let posAA = string19.indexOf('aa');
+    let posEE = string19.indexOf('ee');
+    let posII = string19.indexOf('ii');
+    let posOO = string19.indexOf('oo');
+    let posUU = string19.indexOf('uu'); 
+        // ** Lines 144-147 did not work. Decided to write long-hand if/else statements. 
+        // else if(posAA>0||posEE>0||posII>0||posOO>0||posUU>0){
+            // num19b.textContent = string19;
+            // document.body.appendChild(num19b);
+            // }
+
+    // If "aa", "ee", "ii", "oo", "uu" was not found a value of -1 was returned. 
+    // If value is >= 0, then num19b is printed.
+    // If/else prevents the same word from printing multiple times if double vowels occur more than once in the same word.
+        if(posAA>0){
+            num19b.textContent = string19;
+            document.body.appendChild(num19b);
+        }else if(posEE>=0){
+                num19b.textContent = string19;
+                document.body.appendChild(num19b);
+            } else if(posII>=0){
+                num19b.textContent = string19;
+                document.body.appendChild(num19b);
+                } else if(posOO>=0){
+                    num19b.textContent = string19;
+                    document.body.appendChild(num19b);
+                    } else if(posUU>=0){
+                        num19b.textContent = string19;
+                        document.body.appendChild(num19b);
+                        } 
+        }   
+
+
+
 // 20. Find and display all cities from lotrCitiesArray that end with "or"
 // 21. Find and display all the words in bestThing that start with a "b"
 // 22. Display "Yes" or "No" if lotrCitiesArray includes "Mirkwood"
