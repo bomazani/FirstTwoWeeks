@@ -6,13 +6,15 @@ const bestThing = "The best thing about a boolean is even if you are wrong you a
 let exerciseNum = 1;
 
 // 1. Display an array from the cities in gotCitiesCSV
-const cities = gotCitiesCSV.split(",");
+const cities1 = gotCitiesCSV.slice();
+const cities = cities1.split(",");
 const num1 = document.createElement("div");
 num1.textContent = "1. " + JSON.stringify(cities);
 document.body.appendChild(num1);
 
 // 2. Display an array of words from the sentence in bestThing
-const words = bestThing.split(" ");
+const words1 = bestThing.slice();
+const words = words1.split(" ");
 const num2 = document.createElement("div");
 num2.textContent="2. " + JSON.stringify(words);
 document.body.appendChild(num2);
@@ -24,14 +26,16 @@ num3.textContent = "3. " + JSON.stringify(cities3);
 document.body.appendChild(num3);
 
 // 4. Display a CSV (comma-separated) string from the lotrCitiesArray
-const cities4 = lotrCitiesArray.toString();
+const cities4a = lotrCitiesArray.slice();
+const cities4 = cities4a.toString();
 // console.log(lotrCitiesArray);
 const num4 = document.createElement("div");
 num4.textContent = "4. " + cities4;
 document.body.appendChild(num4);
 
 // 5. Display the first 5 cities in lotrCitiesArray
-const cities5 = lotrCitiesArray.slice(0,5);
+const cities5a = lotrCitiesArray.slice();
+const cities5 = cities5a.slice(0,5);
 // console.log(cities5);
 const num5 = document.createElement("div");
 num5.textContent = "5. " + JSON.stringify(cities5);
@@ -41,18 +45,21 @@ document.body.appendChild(num5);
 // 6. Display the last 5 cities in lotrCitiesArray
 const num6 = document.createElement("div");
 let i = lotrCitiesArray.length;
-const cities6 = lotrCitiesArray.slice((i-5),i);
+const cities6a = lotrCitiesArray.slice();
+const cities6 = cities6a.slice((i-5),i);
 num6.textContent = "6. " + JSON.stringify(cities6);
 document.body.appendChild(num6);
 
 // 7. Display the 3rd to 5th city in lotrCitiesArray
+const cities7 = lotrCitiesArray.slice();
+console.log(cities7);
 const num7 = document.createElement("div");
-num7.textContent = "7. " + lotrCitiesArray.slice(2, 5);
+num7.textContent = "7. " + cities7.slice(2, 5);
 document.body.appendChild(num7);
 
 // 8. Using splice, remove "Rohan" from lotrCitiesArray
 const num8 = document.createElement("div");
-let num8Array = lotrCitiesArray;
+let num8Array = lotrCitiesArray.slice();
 num8Array.splice(2, 1);
 num8.textContent = "8. " + num8Array;
 document.body.appendChild(num8);
@@ -67,7 +74,7 @@ document.body.appendChild(num9);
 
 // 10. Using splice, add "Rohan" back to lotrCitiesArray right after "Gondor"
 const num10 = document.createElement ("div");
-let num10Array = num9Array;
+let num10Array = num9Array.slice();
 num10Array.splice(2, 0, "Rohan");
 num10.textContent = "10. " + num10Array;
 document.body.appendChild(num10);
@@ -82,22 +89,26 @@ document.body.appendChild(num11);
 
 // 12. Using slice, display the first 14 characters from bestThing
 const num12 = document.createElement ("div");
-let num12Array = bestThing.slice(0,14);
-
+let num12ArrayA = bestThing.slice();
+let num12Array = num12ArrayA.slice(0,14);
 num12.textContent = "12. " + num12Array;
 document.body.appendChild(num12);
+// ** Need to remove spaces **
 
 // 13. Using slice, display the last 12 characters from bestThing
 const num13 = document.createElement ("div");
-let num13Array = bestThing.slice(-12);
+let num13ArrayA = bestThing.slice();
+let num13Array = num13ArrayA.slice(-12);
 num13.textContent = "13. " + num13Array;
 document.body.appendChild(num13);
+// ** Need to remove spaces **
 
 // 14. Using slice, display characters between the 23rd and 38th position of bestThing (i.e., "boolean is even"
 const num14 = document.createElement ("div");
 let num14Array = bestThing.slice(22, 38);
 num14.textContent = "14. " + num14Array;
 document.body.appendChild(num14);
+// ** Need to remove spaces **
 
 // 15. Repeat #13 using substring instead of slice.
 const num15 = document.createElement ("div");
@@ -113,7 +124,8 @@ document.body.appendChild(num16);
 
 // 17. Find and display the index of "only" in bestThing
 const num17 = document.createElement ("div");
-const words17 = bestThing.split(" ");
+const words17a = bestThing.slice();
+const words17 = words17a.split(" ");
 let num17Array = words17.indexOf("only");
 num17.textContent = "17. " + num17Array;
 document.body.appendChild(num17);
