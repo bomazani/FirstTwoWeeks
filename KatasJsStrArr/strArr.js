@@ -216,20 +216,20 @@ for(i=0; i<lotrCitiesArray.length; i++){
     // ** returns any city with "or" anywhere, not just ending in "or".
 
 // 21. Find and display all the words in bestThing that start with a "b"
-const words21 = bestThing.slice();
-const words21a = words1.split(" ");
-// console.log(words21a);
-const num21 = document.createElement("div");
-const num21a = document.createElement("div");
-num21.textContent="21. ";
-// document.body.appendChild(num21);
-for(i=0; i<words21a.length; i++){
-    if(words21[i].slice(0)=="B"){
-        num21a.textContent = words21[i];
-        console.log(words21(i))
-        document.body.appendChild(num21a);
-    }
-}
+// const words21 = bestThing.slice();
+// const words21a = words1.split(" ");
+// // console.log(words21a);
+// const num21 = document.createElement("div");
+// const num21a = document.createElement("div");
+// num21.textContent="21. ";
+// // document.body.appendChild(num21);
+// for(i=0; i<words21a.length; i++){
+//     if(words21[i].slice(0)=="B"){
+//         num21a.textContent = words21[i];
+//         console.log(words21(i))
+//         document.body.appendChild(num21a);
+//     }
+// }
 // ** Not Working **
 
 // 22. Display "Yes" or "No" if lotrCitiesArray includes "Mirkwood"
